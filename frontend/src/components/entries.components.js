@@ -37,7 +37,7 @@ const Entries =() =>{
         ))}
             </Container>
 
-            <Modal show={addNewEntry} onHide={() => setAddNewEntry(false)} centred>
+        <Modal show={addNewEntry} onHide={() => setAddNewEntry(false)} centred>
             <Modal.Header closeButton>
             <Modal.Title>Add Calorie Entry</Modal.Title>
             </Modal.Header>
