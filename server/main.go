@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io"
 	"os"
 
 	"github.com/ZhijiunY/calorie-tracker/routes"
@@ -8,7 +9,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func setupLogging() {
+	f, _ := os.Create("gin.log")
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+}
+
 func main() {
+	setupLogging()
 
 	port := os.Getenv("PORT")
 	if port == "" {
