@@ -17,6 +17,7 @@ import (
 var validate = validator.New()
 var entryCollection *mongo.Collection = OpenCollection(Client, "calories")
 
+// 4
 // /entry/create
 func AddEntry(c *gin.Context) {
 	var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)
@@ -49,6 +50,7 @@ func AddEntry(c *gin.Context) {
 	c.JSON(http.StatusOK, result)
 }
 
+// 2
 // /entries
 func GetEntries(c *gin.Context) {
 	var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)
@@ -75,6 +77,7 @@ func GetEntries(c *gin.Context) {
 
 }
 
+// 7
 // /ingredient/:ingredient
 func GetEntriesByIngredient(c *gin.Context) {
 	ingredient := c.Params.ByName("id")
@@ -99,6 +102,7 @@ func GetEntriesByIngredient(c *gin.Context) {
 	c.JSON(http.StatusOK, entries)
 }
 
+// 3
 // /entry/:id/
 func GetEntryById(c *gin.Context) {
 	EntryID := c.Params.ByName("id")
@@ -118,6 +122,7 @@ func GetEntryById(c *gin.Context) {
 
 }
 
+// 6
 // ingredient/update/:id
 func UpdateIngredient(c *gin.Context) {
 	entryID := c.Params.ByName("id")
@@ -150,6 +155,7 @@ func UpdateIngredient(c *gin.Context) {
 	c.JSON(http.StatusOK, result.ModifiedCount)
 }
 
+// 5
 // /entry/update/:id
 func UpdateEntry(c *gin.Context) {
 	entryID := c.Params.ByName("id")
@@ -191,6 +197,7 @@ func UpdateEntry(c *gin.Context) {
 
 }
 
+// 1
 // /entry/delete/:id
 func DeleteEntry(c *gin.Context) {
 	entryID := c.Params.ByName("id")
